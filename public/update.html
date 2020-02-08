@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<base href="/">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="/js/update-page.js" defer></script>
+    <script src="/js/app.js" defer></script>
+    <script src="/js/main.js" defer></script>
+    
+  </head>
+  <body>
+    <div class = "image">
+    <center>  <img src="image/logo.png" width="300px" height="90px"></center>
+  </div>
+  <div class="container">
+  <form id ="contact" action="" method="POST">
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstName" placeholder="first name..">
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastName" placeholder="last name..">
+
+     <label for="weight">Weight</label>
+    <input type="text" id="weight" name="playerWeight" placeholder="Players weight in lb">
+
+   
+  
+     <label for="combine_year">Combine Year</label>
+    <input type="text" id="combine_year" name="combineYear" placeholder="combine_year">
+
+     <label for="weight">Height in Feet</label>
+    <input type="text" id="height_feet" name="playerHeightFeet" placeholder="Players height in feet">
+
+	<label for="weight">Height in Inches</label>
+    <input type="text" id="height_inches" name="playerHeightInches" placeholder="Players height in inches">
+	
+	<label for="weight">Forty Yard Dash Time</label>
+    <input type="text" id="forty_time" name="playerFortyTime" placeholder="Forty Yard Time in Seconds">
+	
+	<label for="weight">Vertical Leap</label>
+    <input type="text" id="vertical_leap" name="playerVertical" placeholder="Players Vertical in Inches">
+	
+	<label for="weight">College</label>
+    <input type="text" id="player_college" name="playerCollege" placeholder="College Attended">
+	
+
+     <label for="position">Position</label>
+    <select id="position" name="position">
+      <option value="NA">Any Position</option>
+      <option value="QB">Quarter Back</option>
+	  <option value="RB">Running Back</option>
+	  <option value="WR">Wide Reciever</option>
+	  <option value="FS">Free Safety</option>
+	  <option value="DE">Defensive End</option>
+	  <option value="OLB">Outside Linebacker</option>
+	  <option value="DT">Defensive Tackle</option>
+	  <option value="P">Punter</option>
+	  <option value="TE">Tight End</option>
+	  <option value="ILB">Inside Linebacker</option>
+	  <option value="OG">Offensive Guard</option>
+	  <option value="K">Kicker</option>
+	  <option value="OT">Offensive Tackle</option>
+	  <option value="FB">Full Back</option>
+	  <option value="SS">Strong Safety</option>
+	  <option value="CB">Cornerback</option>
+	  <option value="LS">Long Snapper</option>
+	  <option value="C">Center</option>
+	  <option value="NT">Nose Tackle</option>
+    </select>
+
+     <button name="update" type="submit" id="contact-submit">Update</button>
+  </form>
+</div>
+  <center>
+  	<section id="home_section">
+  		<h2>Updated Player Sucessfully</h2>
+  	</section>
+		<button name="Home" type="button" id="home_button" data-submit="...Sending">Return Home</button>
+  </center>
+
+  </body>
+</html>
+
