@@ -22,37 +22,18 @@ async function startDbAndServer() {
 	collection = db.collection('players');
 	//wait for a connection on port 3000 use public folder
 	await app.listen(3000);
-
 	console.log("Listening on port 3000\n");
-
-
 
 };
 
 startDbAndServer();
 
-
-
-
-
 async function insertPlayer(req, res) {
 
-	//const routeParams = req.params;
-	//console.log("updatePlayer\n");
-	//console.log(req.body);
-	//const style = req.body.style;
-	//console.log(style);
-	//const message = req.body.message;
 	console.log("INSERTPLAYER\n");
 	const newEntry = { 
-		//firstName: req.body.firstName, 
-		//lastName: req.body.lastName,
-		//playerWeight: req.body.playerWeight,
-		//combineYear: req.body.combineYear,
-		//playerHeight: req.body.playerHeight,
-		//playerPosition: req.body.playerPosition
 	firstName: req.body.firstName,
-    lastName: req.body.lastName,
+    	lastName: req.body.lastName,
 	playerWeight: req.body.playerWeight !== "NA" ? Number(req.body.playerWeight) : "NA",
 	combineYear: req.body.combineYear !== "NA" ? Number(req.body.combineYear) : "NA",
 	heightfeet: req.body.heightfeet !== "NA" ? Number(req.body.heightfeet) : "NA",
@@ -62,31 +43,18 @@ async function insertPlayer(req, res) {
 	college: req.body.college,
 	playerPosition: req.body.playerPosition
 	};
-	//new ObjectID(cardID)
-	//const response = await collection.insertOne(query);
+	
 	const response = await collection.insertOne(newEntry);
 	res.json({ _id : response.insertedId });
-	
-	
-	
 
 }
 app.post('/insert', jsonParser, insertPlayer);
 
 
-
-
-async function getPlayers(req, res) {
-
-  //const routeParams = req.params;
- console.log("getPlayers\n");
-  
-  //const cardId = routeParams.cardId;
-	console.log(req.params);
-	
+async function getPlayers(req, res) {	
 	const ourParams = {
-    firstName: req.params.firstName,
-    lastName: req.params.lastName,
+    	firstName: req.params.firstName,
+    	lastName: req.params.lastName,
 	playerWeight: req.params.playerWeight !== "NA" ? Number(req.params.playerWeight) : "NA",
 	combineYear: req.params.combineYear !== "NA" ? Number(req.params.combineYear) : "NA",
 	heightfeet: req.params.heightfeet !== "NA" ? Number(req.params.heightfeet) : "NA",
@@ -111,11 +79,8 @@ async function getPlayers(req, res) {
 		ourQuery[objectKeys[i]] = objectValues[i];
 	}
 	console.log(ourQuery);
-  //const result = await collection.find( { $and: [ { firstName: req.params.firstName }, { lastName: req.params.lastName } ] } ).toArray();
-  //const result = await collection.find({combineYear: ourParams.combineYear}).toArray();
   const result = await collection.find(ourQuery).toArray();
-  //console.log(req);
-  //console.log(req.params.firstName)
+
  console.log(result);
   
   //response
@@ -123,13 +88,12 @@ async function getPlayers(req, res) {
 }
 app.get('/get/:firstName/:lastName/:playerWeight/:combineYear/:heightfeet/:heightinches/:fortyyd/:vertical/:college/:playerPosition', getPlayers);
 
-
 async function updatePlayer(req, res) {
 
 	console.log("UPDATEPLAYER\n");
 	const newEntry = { 
-		firstName: req.body.firstName,
-    lastName: req.body.lastName,
+	firstName: req.body.firstName,
+    	lastName: req.body.lastName,
 	playerWeight: req.body.playerWeight !== "NA" ? Number(req.body.playerWeight) : "NA",
 	combineYear: req.body.combineYear !== "NA" ? Number(req.body.combineYear) : "NA",
 	heightfeet: req.body.heightfeet !== "NA" ? Number(req.body.heightfeet) : "NA",
