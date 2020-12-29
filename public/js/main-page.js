@@ -1,18 +1,17 @@
 class MainPage {
-  constructor(containerElement) {
-    this.containerElement = containerElement;
-	console.log("first\n");
-    this.firstName = '';
-    this.lastName = '';
+  	constructor(containerElement) {
+    	this.containerElement = containerElement;
+    	this.firstName = '';
+    	this.lastName = '';
 	this.playerWeight = '';
 	this.combineYear = '';
 	this.playerHeight = '';
 	this.playerPosition = '';
 
-    this.firstName = document.querySelector('#fname');
-    this.lastName = document.querySelector('#lname');
-    this.playerWeight = document.querySelector('#weight');
-    this.combineYear = document.querySelector('#combine_year');
+    	this.firstName = document.querySelector('#fname');
+    	this.lastName = document.querySelector('#lname');
+    	this.playerWeight = document.querySelector('#weight');
+    	this.combineYear = document.querySelector('#combine_year');
 	this.playerHeightFeet = document.querySelector('#height_feet');
 	this.playerHeightInches = document.querySelector('#height_inches');
 	this.playerForty = document.querySelector('#forty_time');
@@ -27,7 +26,7 @@ class MainPage {
 	this.tableSection = document.querySelector('#tableResults');
 	this.table = document.querySelector('#table');
 	this.newPlayer = document.querySelector('#new_player');
-    this.form = document.querySelector('#contact');
+    	this.form = document.querySelector('#contact');
 	this.submitButton = document.querySelector("#contact-submit");
 	this.updateButton = document.querySelector("#update_button");
 	this.homeButton = document.querySelector("#home_button");
@@ -35,7 +34,7 @@ class MainPage {
 	this.listButtons = [];
 
     // Bind methods.
-    this._onFormSubmit = this._onFormSubmit.bind(this);
+    	this._onFormSubmit = this._onFormSubmit.bind(this);
 	this._newPlayer = this._newPlayer.bind(this);
 	this.updatePlayer = this.updatePlayer.bind(this);
 	this._homeButton = this._homeButton.bind(this);
@@ -49,30 +48,26 @@ class MainPage {
 	this.homeButton.style.display = "none";
 	this.homeSection.style.display = "none";
 	
-	//console.log("Here\n");
-    
-    //this.containerElement.classList.remove('hidden');
   }
 
   async _onFormSubmit(event) {
-    event.preventDefault();
-	console.log("onForm\n");
+    	event.preventDefault();
 
     const params = {
-      firstName: this.firstName.value !== '' ? this.firstName.value : "NA",
-      lastName: this.lastName.value !== '' ? this.lastName.value : "NA",
-	  playerWeight: this.playerWeight.value !== '' ? Number(this.playerWeight.value) : "NA",
-	  combineYear: this.combineYear.value !== '' ? Number(this.combineYear.value) : "NA",
-	  heightfeet: this.playerHeightFeet.value !== '' ? Number(this.playerHeightFeet.value) : "NA",
-	  heightinches: this.playerHeightInches.value !== '' ? Number(this.playerHeightInches.value) : "NA",
-	  fortyyd: this.playerForty.value !== '' ? Number(this.playerForty.value) : "NA",
-	  vertical: this.playerVertical.value !== '' ? Number(this.playerVertical.value) : "NA",
-	  college: this.playerCollege.value !== '' ? this.playerCollege.value : "NA",
-	  playerPosition: this.playerPosition.value !== '' ? this.playerPosition.value : "NA",
-	  _id: "NA"
+	firstName: this.firstName.value !== '' ? this.firstName.value : "NA",
+	lastName: this.lastName.value !== '' ? this.lastName.value : "NA",
+	playerWeight: this.playerWeight.value !== '' ? Number(this.playerWeight.value) : "NA",
+	combineYear: this.combineYear.value !== '' ? Number(this.combineYear.value) : "NA",
+	heightfeet: this.playerHeightFeet.value !== '' ? Number(this.playerHeightFeet.value) : "NA",
+	heightinches: this.playerHeightInches.value !== '' ? Number(this.playerHeightInches.value) : "NA",
+	fortyyd: this.playerForty.value !== '' ? Number(this.playerForty.value) : "NA",
+	vertical: this.playerVertical.value !== '' ? Number(this.playerVertical.value) : "NA",
+	college: this.playerCollege.value !== '' ? this.playerCollege.value : "NA",
+	playerPosition: this.playerPosition.value !== '' ? this.playerPosition.value : "NA",
+	_id: "NA"
 	  
     }
-	console.log(params);
+
     const fetchOptions = {
       method: 'GET',
       headers: {
@@ -80,12 +75,11 @@ class MainPage {
         'Content-Type': 'application/json'
       }
     };
-	//console.log(fetchOptions);
-	console.log(`/get/${params.firstName}/${params.lastName}/${params.playerWeight}/${params.combineYear}/${params.playerHeightFeet}/${params.playerHeightInches}/${params.playerForty}/${params.playerVertical}/${params.playerCollege}/${params.playerPosition}`);
-   const result = await fetch(`/get/${params.firstName}/${params.lastName}/${params.playerWeight}/${params.combineYear}/${params.heightfeet}/${params.heightinches}/${params.fortyyd}/${params.vertical}/${params.college}/${params.playerPosition}`,fetchOptions);
-    const json = await result.json();
-	console.log(json);
-	console.log(json[0])
+
+	const result = await fetch(`/get/${params.firstName}/${params.lastName}/${params.playerWeight}/${params.combineYear}/${params.heightfeet}/${params.heightinches}/${params.fortyyd}/${params.vertical}/${params.college}/${params.playerPosition}`,fetchOptions);
+    	const json = await result.json();
+
+	//console.log(json[0])
 	this.section.style.display = "none";
 	
 	var objectKeys = Object.keys(params);
@@ -129,16 +123,16 @@ class MainPage {
 	  event.preventDefault();
 	  console.log("newPlayer");
 	  const params = {
-      firstName: this.firstName.value !== '' ? this.firstName.value : "NA",
-      lastName: this.lastName.value !== '' ? this.lastName.value : "NA",
-	  playerWeight: this.playerWeight.value !== '' ? Number(this.playerWeight.value) : "NA",
-	  combineYear: this.combineYear.value !== '' ? Number(this.combineYear.value) : "NA",
-	  heightfeet: this.playerHeightFeet.value !== '' ? Number(this.playerHeightFeet.value) : "NA",
-	  heightinches: this.playerHeightInches.value !== '' ? Number(this.playerHeightInches.value) : "NA",
-	  fortyyd: this.playerForty.value !== '' ? Number(this.playerForty.value) : "NA",
-	  vertical: this.playerVertical.value !== '' ? Number(this.playerVertical.value) : "NA",
-	  college: this.playerCollege.value !== '' ? this.playerCollege.value : "NA",
-	  playerPosition: this.playerPosition.value !== '' ? this.playerPosition.value : "NA"
+		firstName: this.firstName.value !== '' ? this.firstName.value : "NA",
+		lastName: this.lastName.value !== '' ? this.lastName.value : "NA",
+		playerWeight: this.playerWeight.value !== '' ? Number(this.playerWeight.value) : "NA",
+		combineYear: this.combineYear.value !== '' ? Number(this.combineYear.value) : "NA",
+		heightfeet: this.playerHeightFeet.value !== '' ? Number(this.playerHeightFeet.value) : "NA",
+		heightinches: this.playerHeightInches.value !== '' ? Number(this.playerHeightInches.value) : "NA",
+		fortyyd: this.playerForty.value !== '' ? Number(this.playerForty.value) : "NA",
+		vertical: this.playerVertical.value !== '' ? Number(this.playerVertical.value) : "NA",
+		college: this.playerCollege.value !== '' ? this.playerCollege.value : "NA",
+		playerPosition: this.playerPosition.value !== '' ? this.playerPosition.value : "NA"
 	  
     }
 	
@@ -158,9 +152,9 @@ class MainPage {
       body: JSON.stringify(params)
     };
 	console.log(fetchOptions);
-    const result = await fetch('/insert',fetchOptions);
-    const json = await result.json();
-	console.log("newPlayer Added");
+	const result = await fetch('/insert',fetchOptions);
+	const json = await result.json();
+	//console.log("newPlayer Added");
 	this.section.style.display = "none";
 	this.homeSection.style.display = "block";
 	this.homeButton.style.display = "block";
@@ -185,10 +179,9 @@ class MainPage {
 		var string = "";
 		for(var i = 0; i < playerInfo.cells.length; i++){
 			this.form.elements[i].value = playerInfo.cells[i].innerHTML;
-			//console.log(playerInfo.cells[i].innerHTML);
 			string += playerInfo.cells[i].innerHTML + ",";
 		}
-		//this.form.firstName.value = "TEST";
+
 		this.section.style.display = "block";
 		this.submitButton.style.display = "none";
 		this.newPlayer.style.display = "none";
